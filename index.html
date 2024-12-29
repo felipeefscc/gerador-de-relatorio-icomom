@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preencher Formulário PDF</title>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <style>
+        /* Estilização geral do corpo */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 310vh;
+        }
+
+        /* Container do formulário */
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            
+            
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        
+        .upcase {
+            font-size: 15px;
+
+        }
+
+       
+        /* Estilização dos labels */
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+            margin-bottom: 10px;
+            margin-top: 3px;
+            
+        }
+
+        /* Estilização dos campos de entrada */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            text-transform: uppercase
+        }
+
+        /* Mudança de cor ao focar nos campos de texto */
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+
+        /* Estilização do botão */
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            margin-top: 10px ;
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input, textarea {
+            border: 1px solid #c0b9b9;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            box-sizing: border-box; 
+        }
+
+
+        /* Efeito ao passar o mouse sobre o botão */
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilização do input de arquivo */
+        input[type="file"] {
+            margin-bottom: 15px;
+        }
+
+        /* Estilo do alerta */
+        .alert {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 600px) {
+            .form-container {
+                width: 90%;
+                padding: 15px;
+                height: 300vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Preencher Formulário PDF</h1>
+
+        <!-- Input para escolher o arquivo PDF -->
+        <input type="file" id="pdfFile" />
+
+        <div class="alert" id="alertMessage"></div>
+
+        <label for="pontaA">Ponta A:</label>
+        <input type="text" id="pontaA" placeholder="Digite a Ponta A" />
+
+        <label for="pontaB">Ponta B:</label>
+        <input type="text" id="pontaB" placeholder="Digite a Ponta B" />
+
+        <label for="ta">TA:</label>
+        <input type="number" id="ta" placeholder="Digite o numéro da TA" /><br/>
+
+        <label for="local">Local:</label>
+        <input type="text" id="local" placeholder="Digite o local" />
+
+        <label for="data">Data:</label>
+        <input type="date" id="data" min="01-01-2020" max="01-01-2029" />
+        <br/>
+
+        <label for="endereco">Endereço:</label>
+        <input type="text" id="endereco" placeholder="Digite o Endereço" />
+
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" placeholder="Digite a Latitude" />
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" placeholder="Digite a Longitude" />
+
+        <label for="tecnico">Técnico:</label>
+        <input type="text" id="tecnico" placeholder="Digite o nome do Técnico" />
+
+        <label for="auxiliar">Auxiliar:</label>
+        <input type="text" id="auxiliar" placeholder="Digite o nome do auxiliar" />
+
+        <label for="re">RE:</label>
+        <input type="number" id="re" placeholder="Digite o RE" />
+
+        <label for="supervisor">Supervisor</label>
+            <select id="supervisor" required>
+                <option value="">--Selecione um supervisor! --</option>
+                <option value="Josias Sampaio">Josias Sampaio</option>
+                <option value="Maike Santos">Maike Santos</option>
+                <option value="João Victor">João Victor</option>
+            </select>
+
+            <label for="coordenador">Coordenador:</label>
+            <select id="coordenador" required>
+                <option value="">--Selecione um coordenador! --</option>
+                <option value="Werley da Silva">Werley da Silva</option>
+                <option value="Deivison Gomes">Deivison Gomes</option>
+            </select>
+
+        <label for="causa">Causa Raiz:</label>
+            <select id="causa" required>
+                <option value="">--Selecione um causa! --</option>
+                <option value="Degradação">Degradação</option>
+                <option value="Carga Alta">Carga Alta</option>
+                <option value="Troca de Poste">Troca de Poste</option>
+                <option value="Descarga Eletrica">Descarga Eletrica</option>
+                <option value="Ação de Terceiros">Ação de Terceiros</option>
+            </select>
+
+        <label for="tratativa">Tratativas:</label>
+        <textarea id="tratativa"  rows="10" placeholder="Digite a tratativa" required></textarea>
+
+        <label for="baixas">Baixas:</label>
+        <textarea id="baixas"  rows="10" placeholder="Digitea quais foram as baixas" required></textarea>
+        
+        <h3>Cabo Utilizado:</h3>
+
+        <label for="drop4f0">Drop de 4fo:</label>
+        <input type="text" id="drop4f0" placeholder="Marque com x" />
+        
+
+        <label for="drop12fo">Drop Circular de 12:</label>
+        <input type="text" id="drop12fo" placeholder="Marque com x" />
+       
+
+        <label for="cabo24fo">Cabo de 24f0:</label>
+        <input type="text" id="cabo24fo" placeholder="Marque com x" />
+       
+
+        <label for="cabo36fo">Cabo de 36f0:</label>
+        <input type="text" id="cabo36fo" placeholder="Marque com x" />
+     
+
+        <label for="cabo48fo">Cabo de 48f0:</label>
+        <input type="text" id="cabo48fo" placeholder="Marque com x" />
+      
+
+        <label for="cabo72fo">Cabo de 72f0:</label>
+        <input type="text" id="cabo72fo" placeholder="Marque com x" />
+      
+
+        <label class="upcase" for="qCabo"><b>Quantidade de Cabo Utilizado:</b></label>
+        <input type="number" id="qCabo" placeholder="Digite a metragem de cabo utilizado" /> 
+        <br/>   
+
+        <h3>Emenda Utilizada:</h3>
+
+        <label for="ptro">PTRO:</label>
+        <input type="text" id="ptro" placeholder="Marque com x" />
+        
+
+        <label for="ceo48fo">Caixa de emenda de 48fo:</label>
+        <input type="text" id="ceo48fo" placeholder="Marque com x" />
+       
+
+        <label for="ceo72fo">Caixa de emenda de 72fo:</label>
+        <input type="text" id="ceo72fo" placeholder="Marque com x" />
+        
+            
+        <label class="upcase" for="qEmenda"><b>Quantidade de Emenda Utilizadas:</b></label>
+        <input type="number" id="qEmenda" placeholder="Digite a quantidade" /> 
+
+        <br/> 
+        
+        <br/>
+        <button  id="fillPdfBtn">Preencher e Baixar PDF</button>
+    </div>
+
+
+    <script>
+        document.getElementById('fillPdfBtn').addEventListener('click', async () => {
+            // Obter o arquivo PDF
+            const pdfFile = document.getElementById('pdfFile').files[0];
+            if (!pdfFile) {
+                document.getElementById('alertMessage').textContent = 'Por favor, selecione um arquivo PDF.';
+                return;
+            } else {
+                document.getElementById('alertMessage').textContent = '';
+            }
+
+            // Ler o arquivo PDF selecionado
+            const arrayBuffer = await pdfFile.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+
+            // Obter o formulário (campo de texto)
+            const form = pdfDoc.getForm();
+
+            // Preencher os campos com os dados fornecidos
+            const pontaA = document.getElementById('pontaA').value;
+            const pontaB = document.getElementById('pontaB').value;
+            const ta = document.getElementById('ta').value;
+            const local = document.getElementById('local').value;
+            const data = document.getElementById('data').value;
+            const endereco = document.getElementById('endereco').value;
+            const tecnico = document.getElementById('tecnico').value;
+            const auxiliar = document.getElementById('auxiliar').value;
+            const re = document.getElementById('re').value;
+            const supervisor = document.getElementById('supervisor').value;
+            const coordenador = document.getElementById('coordenador').value;
+            const causa = document.getElementById('causa').value;
+            const tratativa = document.getElementById('tratativa').value;
+            const baixas = document.getElementById('baixas').value;
+            //const cabo = document.getElementById('cabo').value;
+            const qCabo = document.getElementById('qCabo').value
+            //const emenda = document.getElementById('emenda').value;
+            const qEmenda = document.getElementById('qEmenda').value
+            const latitude = document.getElementById('latitude').value
+            const longitude = document.getElementById('longitude').value
+
+            // emendas
+
+            const drop4f0 = document.getElementById('drop4f0').value;
+            const drop12fo = document.getElementById('drop12fo').value;
+            const cabo24fo = document.getElementById('cabo24fo').value;
+            const cabo36fo = document.getElementById('cabo36fo').value;
+            const cabo48fo = document.getElementById('cabo48fo').value;
+            const cabo72fo = document.getElementById('cabo72fo').value;
+            const ptro = document.getElementById('ptro').value;
+            const ceo48fo = document.getElementById('ceo48fo').value;
+            //const ceo72fo = document.getElementById('ceo72fo').value;
+
+            
+            
+            const drop4f0Field = form.getTextField('drop4f0');
+            drop4f0Field.setText(drop4f0);
+
+            const drop12foField = form.getTextField('drop12fo');
+            drop12foField.setText(drop12fo);
+
+            const cabo24foField = form.getTextField('cabo24fo');
+            cabo24foField.setText(cabo24fo);
+
+            const cabo36foField = form.getTextField('cabo36fo');
+            cabo36foField.setText(cabo36fo);
+
+            const cabo48foField = form.getTextField('cabo48fo');
+            cabo48foField.setText(cabo48fo);
+
+            const cabo72foField = form.getTextField('cabo72fo');
+            cabo72foField.setText(cabo72fo);
+
+            const ptroField = form.getTextField('ptro');
+            ptroField.setText(ptro);
+
+            const ceo48foField = form.getTextField('ceo48fo');
+            ceo48foField.setText(ceo48fo);
+
+            //const ceo72foField = form.getTextField('ceo72fo');
+            //ceo72foField.setText(re); 
+            
+        
+            
+        //emendas
+
+            const pontaAField = form.getTextField('pontaA');
+            pontaAField.setText(pontaA);
+
+            const pontaBField = form.getTextField('pontaB');
+            pontaBField.setText(pontaB);
+
+            const taField = form.getTextField('ta');
+            taField.setText(ta);
+
+            const localField = form.getTextField('local');
+            localField.setText(local);
+
+            const dataField = form.getTextField('data');
+            dataField.setText(data);
+
+            const enderecoField = form.getTextField('endereco');
+            enderecoField.setText(endereco);
+
+            const tecnicoField = form.getTextField('tecnico');
+            tecnicoField.setText(tecnico);
+
+            const auxiliarField = form.getTextField('auxiliar');
+            auxiliarField.setText(auxiliar);
+
+            const reField = form.getTextField('re');
+            reField.setText(re);
+
+            const supervisorField = form.getTextField('supervisor');
+            supervisorField.setText(supervisor);
+
+            const coordenadorField = form.getTextField('coordenador');
+            coordenadorField.setText(coordenador);
+
+            const causaField = form.getTextField('causa');
+            causaField.setText(causa);
+
+            const tratativaField = form.getTextField('tratativa');
+            tratativaField.setText(tratativa);
+
+            const baixasField = form.getTextField('baixas');
+            baixasField.setText(baixas);
+
+            //const caboField = form.getTextField('cabo');
+            //caboField.setText(cabo);
+
+            const qCaboField = form.getTextField('qCabo');
+            qCaboField.setText(qCabo);
+
+            //const emendaField = form.getTextField('emenda');
+            //emendaField.setText(emenda);
+
+            const qEmendaField = form.getTextField('qEmenda');
+            qEmendaField.setText(qEmenda);
+
+            const latitudeField = form.getTextField('latitude');
+            latitudeField.setText(latitude);
+
+            const longitudeField = form.getTextField('longitude');
+            longitudeField.setText(longitude);
+
+            // Serializar o PDF modificado
+            const pdfBytes = await pdfDoc.save();
+
+            // Criar um nome dinâmico para o PDF
+            const nomeArquivo = ta ? `${pontaA} x ${pontaB} - ${ta}.pdf` : 'Formulario_preenchido.pdf';
+
+            // Criar um link para o usuário baixar o PDF preenchido
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = nomeArquivo;
+            link.click();
+        });
+    </script>
+</body>
+</html>

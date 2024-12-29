@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 170vh;
+}
+.container {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 700px;
+    padding: 20px;
+    box-sizing: border-box;
+
+}
+
+
+h2 {
+    text-align: center;
+    color: #333333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #555555;
+}
+input, textarea, button {
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #5c9ded;
+    box-shadow: 0 0 5px rgba(92, 157, 237, 0.5);
+}
+button {
+    margin-top: 15px;
+    background-color: #5c9ded;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button:hover {
+    background-color: #4b8ed1;
+}
+button:active {
+    transform: scale(0.98);
+}
+
+input[type="text"], textarea, select {
+    text-transform: uppercase;
+};
