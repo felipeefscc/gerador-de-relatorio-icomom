@@ -272,17 +272,17 @@
             const form = pdfDoc.getForm();
 
             // Preencher os campos com os dados fornecidos
-            const pontaA = document.getElementById('pontaA').value;
-            const pontaB = document.getElementById('pontaB').value;
+            const pontaA = document.getElementById('pontaA').value.toUpperCase();
+            const pontaB = document.getElementById('pontaB').value.toUpperCase();
             const ta = document.getElementById('ta').value;
             const local = document.getElementById('local').value;
             const data = document.getElementById('data').value;
             const endereco = document.getElementById('endereco').value;
-            const tecnico = document.getElementById('tecnico').value;
-            const auxiliar = document.getElementById('auxiliar').value;
+            const tecnico = document.getElementById('tecnico').value.toUpperCase();
+            const auxiliar = document.getElementById('auxiliar').value.toUpperCase();
             const re = document.getElementById('re').value;
-            const supervisor = document.getElementById('supervisor').value;
-            const coordenador = document.getElementById('coordenador').value;
+            const supervisor = document.getElementById('supervisor').value.toUpperCase();
+            const coordenador = document.getElementById('coordenador').value.toUpperCase();
             const causa = document.getElementById('causa').value;
             const tratativa = document.getElementById('tratativa').value;
             const baixas = document.getElementById('baixas').value;
