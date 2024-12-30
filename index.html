@@ -129,10 +129,10 @@
     <div class="form-container">
         <h1>Preencher Formulário PDF</h1>
 
-        <!-- Input para escolher o arquivo PDF -->
+        <!-- Input para escolher o arquivo PDF
         <input type="file" id="pdfFile" />
 
-        <div class="alert" id="alertMessage"></div>
+        <div class="alert" id="alertMessage"></div> -->
 
         <label for="pontaA">Ponta A:</label>
         <input type="text" id="pontaA" placeholder="Digite a Ponta A" required />
@@ -257,17 +257,17 @@
     <script>
         document.getElementById('fillPdfBtn').addEventListener('click', async () => {
             // Obter o arquivo PDF
-            const pdfFile = document.getElementById('pdfFile').files[0];
-            if (!pdfFile) {
-                document.getElementById('alertMessage').textContent = 'Por favor, selecione um arquivo PDF.';
-                return;
-            } else {
-                document.getElementById('alertMessage').textContent = '';
-            }
+            const pdfFile = await fetch('./croquibase.pdf').then(res => res.arrayBuffer());
+            //if (!pdfFile) {
+             //   document.getElementById('alertMessage').textContent = 'Por favor, selecione um arquivo PDF.';
+            //    return;
+           // } else {
+            //    document.getElementById('alertMessage').textContent = '';
+           // }
 
             // Ler o arquivo PDF selecionado
-            const arrayBuffer = await pdfFile.arrayBuffer();
-            const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer);
+            //const arrayBuffer = await pdfFile.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(pdfFile);
 
             // Obter o formulário (campo de texto)
             const form = pdfDoc.getForm();
