@@ -214,11 +214,11 @@
         <input type="text" id="drop4f0" maxlength="1" placeholder="Marque com x" />
         
 
-        <label for="drop12fo">Drop Circular de 12:</label>
+        <label for="drop12fo">Drop Circular de 12fo:</label>
         <input type="text" id="drop12fo" maxlength="1" placeholder="Marque com x" />
        
 
-        <label for="cabo24fo">Cabo de 24f0:</label>
+        <label for="cabo24fo">Cabo de 24fo:</label>
         <input type="text" id="cabo24fo" maxlength="1" placeholder="Marque com x" />
        
 
@@ -226,11 +226,11 @@
         <input type="text" id="cabo36fo" maxlength="1" placeholder="Marque com x" />
      
 
-        <label for="cabo48fo">Cabo de 48f0:</label>
+        <label for="cabo48fo">Cabo de 48fo:</label>
         <input type="text" id="cabo48fo" maxlength="1" placeholder="Marque com x" />
       
 
-        <label for="cabo72fo">Cabo de 72f0:</label>
+        <label for="cabo72fo">Cabo de 72fo:</label>
         <input type="text" id="cabo72fo" maxlength="1" placeholder="Marque com x" />
       
 
@@ -411,7 +411,7 @@
             const pdfBytes = await pdfDoc.save();
 
             // Criar um nome dinâmico para o PDF
-            const nomeArquivo = ta ? `${pontaA} x ${pontaB} - ${ta}.pdf` : 'Formulario_preenchido.pdf';
+            const nomeArquivo = re ? `${pontaA} x ${pontaB} - ${ta}.pdf` : 'Faltou preencher o RE.pdf';
 
             // Criar um link para o usuário baixar o PDF preenchido
             const blob = new Blob([pdfBytes], { type: 'application/pdf' });
