@@ -2,6 +2,7 @@
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+       
     } else {
         alert("Geolocalização não suportada pelo seu navegador.");
     }
@@ -31,7 +32,7 @@ function successCallback(position) {
                     if (component.types.includes("street_number")) {
                         numero = component.long_name;
                     }
-                    if (component.types.includes("sublocality") || component.types.includes("political")) {
+                    if (component.types.includes("sublocality") || component.types.includes("sublocality_level_1")) {
                         bairro = component.long_name;
                     }
                     if (component.types.includes("administrative_area_level_2")) {
@@ -61,3 +62,5 @@ function successCallback(position) {
 function errorCallback(error) {
     alert("Erro ao obter localização: " + error.message);
 }
+
+
