@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 340vh;
+            height: 310vh;
         }
 
         /* Container do formulário */
@@ -28,8 +28,8 @@
             max-width: 600px;
             display: flex;
             flex-direction: column;
-            
-            
+
+
         }
 
         h1 {
@@ -39,13 +39,13 @@
             margin-bottom: 20px;
         }
 
-        
+
         .upcase {
             font-size: 15px;
 
         }
 
-       
+
         /* Estilização dos labels */
         label {
             font-size: 14px;
@@ -53,7 +53,7 @@
             display: block;
             margin-bottom: 10px;
             margin-top: 3px;
-            
+
         }
 
         /* Estilização dos campos de entrada */
@@ -76,7 +76,7 @@
         }
 
         /* Estilização do botão */
-        .bottom1 {
+        button {
             background-color: #007BFF;
             color: white;
             border: none;
@@ -87,7 +87,6 @@
             border-radius: 4px;
             cursor: pointer;
             transition: background-color 0.3s;
-            
         }
 
         input, textarea {
@@ -96,106 +95,6 @@
             padding: 10px;
             font-size: 14px;
             box-sizing: border-box; 
-        }
-
-        .btn-loc {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background 0.3s ease-in-out;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-            gap: 8px;
-        }
-
-        /* MODAL */
-
-        .btn-open {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: background 0.3s ease-in-out;
-        }
-
-        .btn-open:hover {
-            background-color: #0056b3;
-        }
-
-        /* Estilo do modal (pop-up) */
-        .modal {
-            display: none; /* Oculto por padrão */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Conteúdo do modal */
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-            text-align: left;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Botão de fechar */
-        .close-btn {
-            float: right;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            color: #333;
-        }
-
-        .close-btn:hover {
-            color: red;
-        }
-
-        /* Estilo dos campos do formulário */
-        .form-group {
-            margin: 10px 0;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .btn-submit {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .btn-submit:hover {
-            background-color: #218838;
         }
 
 
@@ -227,17 +126,11 @@
     </style>
 </head>
 <body>
-    <script src="app.js"></script>
-    <script src="modal.js"></script>
-    <script defer src="geradorPdf.js"></script>
-    
-
     <div class="form-container">
         <h1>Gerador de Croqui - Icomom</h1>
 
         <!-- Input para escolher o arquivo PDF
         <input type="file" id="pdfFile" />
-
         <div class="alert" id="alertMessage"></div> -->
 
         <label for="pontaA">Ponta A (site):</label>
@@ -249,17 +142,12 @@
         <label for="ta">TA:</label>
         <input type="number" id="ta" placeholder="Digite o numéro da TA" maxlength="9" required /><br/>
 
-        <label for="data">Data:</label>
-        <input type="date" id="data" min="01-01-2020" maxlength="8" required/>
-        <br/>
-
-        <button class="btn-loc" onclick="getLocation()">
-             Usar Minha Localização 📍
-        </button>
-
         <label for="local">Local:</label>
         <input type="text" id="local" placeholder="Digite o local" required />
 
+        <label for="data">Data:</label>
+        <input type="date" id="data" min="01-01-2020" maxlength="8" required/>
+        <br/>
 
         <label for="endereco">Endereço:</label>
         <input type="text" id="endereco" placeholder="Digite o Endereço" required/>
@@ -276,7 +164,7 @@
         <label for="auxiliar">Auxiliar:</label>
         <input type="text" id="auxiliar" placeholder="Digite o nome do auxiliar" />
         <br/>
-        
+
 
         <label for="supervisor">Supervisor</label>
             <select id="supervisor" required>
@@ -306,7 +194,6 @@
                 <option value="Troca de Poste">Troca de Poste</option>
                 <option value="Descarga Eletrica">Descarga Eletrica</option>
                 <option value="Ação de Terceiros">Ação de Terceiros</option>
-                <option value="Atenuação">Atenuação</option>
             </select>
         <br/>
         <label for="re">RE:</label>
@@ -316,36 +203,35 @@
         <label for="tratativa">Tratativas:</label>
         <textarea id="tratativa"  rows="10" placeholder="Digite a tratativa" required></textarea>
         <br/>
-        <button class="bottom1" onclick="openModal1()">Informações do Lançamento 📝</button>
-        <br/>
+
         <label for="baixas">Baixas:</label>
         <textarea id="baixas"  rows="10" placeholder="Digite quais foram as baixas" required></textarea>
-        
+
         <h3>Cabo Utilizado:</h3>
 
         <label for="drop4f0">Drop de 4fo:</label>
         <input type="text" id="drop4f0" maxlength="1" placeholder="Marque com x" />
-        
+
 
         <label for="drop12fo">Drop Circular de 12fo:</label>
         <input type="text" id="drop12fo" maxlength="1" placeholder="Marque com x" />
-       
+
 
         <label for="cabo24fo">Cabo de 24fo:</label>
         <input type="text" id="cabo24fo" maxlength="1" placeholder="Marque com x" />
-       
+
 
         <label for="cabo36fo">Cabo de 36f0:</label>
         <input type="text" id="cabo36fo" maxlength="1" placeholder="Marque com x" />
-     
+
 
         <label for="cabo48fo">Cabo de 48fo:</label>
         <input type="text" id="cabo48fo" maxlength="1" placeholder="Marque com x" />
-      
+
 
         <label for="cabo72fo">Cabo de 72fo:</label>
         <input type="text" id="cabo72fo" maxlength="1" placeholder="Marque com x" />
-      
+
 
         <label class="upcase" for="qCabo"><b>Quantidade de Cabo Utilizado:</b></label>
         <input type="number" id="qCabo" placeholder="Digite a metragem de cabo utilizado" /> 
@@ -355,100 +241,184 @@
 
         <label for="ptro">PTRO:</label>
         <input type="text" id="ptro" maxlength="1" placeholder="Marque com x" />
-        
+
 
         <label for="ceo48fo">Caixa de emenda de 48fo:</label>
         <input type="text" id="ceo48fo" maxlength="1" placeholder="Marque com x" />
-       
+
 
         <label for="ceo72fo">Caixa de emenda de 72fo:</label>
         <input type="text" id="ceo72fo" maxlength="1" placeholder="Marque com x" />
-        
-            
+
+
         <label class="upcase" for="qEmenda"><b>Quantidade de Emenda Utilizadas:</b></label>
         <input type="number" id="qEmenda" placeholder="Digite a quantidade" /> 
 
         <br/> 
-        <!-- Botão que abre o pop-up -->
-        <button class="bottom1" onclick="openModal2()">Localização das emendas!</button>
+
         <br/>
-        
-        <button class="bottom1"  id="fillPdfBtn">Preencher e Baixar PDF</button>
-
-        
-    </div>
-
-    <div id="myModal2" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal2()">&times;</span>
-            <h2>Preencha os Dados:</h2>
-
-            <h4>LOCALIZAÇÃO EMENDA 1</h4>
-            <button class="btn-loc" onclick="getLocation1()">
-                Usar Minha Localização 📍
-           </button>
-
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="enderecoemenda1" placeholder="Digite o Endereço" required/>
-
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitudeemenda1" placeholder="Digite a Latitude" />
-
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitudeemenda1" placeholder="Digite a Longitude" />
-
-        <h4>LOCALIZAÇÃO EMENDA 2</h4>
-        <button class="btn-loc" onclick="getLocation()">
-            Usar Minha Localização 📍
-       </button>
-
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="enderecoemenda2" placeholder="Digite o Endereço" required/>
-
-        <label for="latitude">Latitude:</label>
-        <input type="text" id="latitudeemenda2" placeholder="Digite a Latitude" />
-
-        <label for="longitude">Longitude:</label>
-        <input type="text" id="longitudeemenda2" placeholder="Digite a Longitude" />
-
-
-            <button class="bottom1"onclick="closeModal2()">Fechar</button>
-            
-        </div>
+        <button  id="fillPdfBtn">Preencher e Baixar PDF</button>
     </div>
 
 
+    <script>
+        document.getElementById('fillPdfBtn').addEventListener('click', async () => {
+            // Obter o arquivo PDF
+            const pdfFile = await fetch('./croquibase.pdf').then(res => res.arrayBuffer());
+            //if (!pdfFile) {
+             //   document.getElementById('alertMessage').textContent = 'Por favor, selecione um arquivo PDF.';
+            //    return;
+           // } else {
+            //    document.getElementById('alertMessage').textContent = '';
+           // }
 
-    <div id="myModal1" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeModal1()">&times;</span>
-            <h2>Preencha os Dados:</h2>
+            // Ler o arquivo PDF selecionado
+            //const arrayBuffer = await pdfFile.arrayBuffer();
+            const pdfDoc = await PDFLib.PDFDocument.load(pdfFile);
 
-            <div class="form-group">
-                <label for="nome">LANÇAMENTO TOTAL:</label>
-                <input type="text" id="nome" placeholder="Digite a metragem total do lançaamento">
-            </div>
+            // Obter o formulário (campo de texto)
+            const form = pdfDoc.getForm();
 
-            <div class="form-group">
-                <label for="email">RESERVA EMENDA 1:</label>
-                <input type="email" id="email" placeholder="METRAGEM DA RESERVA DA EMENDA 1">
-            </div>
+            // Preencher os campos com os dados fornecidos
+            const pontaA = document.getElementById('pontaA').value.toUpperCase();
+            const pontaB = document.getElementById('pontaB').value.toUpperCase();
+            const ta = document.getElementById('ta').value;
+            const local = document.getElementById('local').value.toUpperCase();
+            const data = document.getElementById('data').value;
+            const endereco = document.getElementById('endereco').value;
+            const tecnico = document.getElementById('tecnico').value.toUpperCase();
+            const auxiliar = document.getElementById('auxiliar').value.toUpperCase();
+            const re = document.getElementById('re').value;
+            const supervisor = document.getElementById('supervisor').value.toUpperCase();
+            const coordenador = document.getElementById('coordenador').value.toUpperCase();
+            const causa = document.getElementById('causa').value;
+            const tratativa = document.getElementById('tratativa').value;
+            const baixas = document.getElementById('baixas').value;
+            //const cabo = document.getElementById('cabo').value;
+            const qCabo = document.getElementById('qCabo').value
+            //const emenda = document.getElementById('emenda').value;
+            const qEmenda = document.getElementById('qEmenda').value
+            const latitude = document.getElementById('latitude').value
+            const longitude = document.getElementById('longitude').value
 
-            <div class="form-group">
-                <label for="nome">RESERVA EMENDA 2:</label>
-                <input type="text" id="nome" placeholder="METRAGEM DA RESERVA DA EMENDA 2">
-            </div>
+            // emendas
 
-            <div class="form-group">
-                <label for="email">QUANTIDADE DE LANCES:</label>
-                <input type="email" id="email" placeholder="Quantos lances de poste?">
-            </div>
-
-
-            <button class="bottom1"onclick="closeModal1()">Fechar</button>
-        </div>
-    </div>
+            const drop4f0 = document.getElementById('drop4f0').value;
+            const drop12fo = document.getElementById('drop12fo').value;
+            const cabo24fo = document.getElementById('cabo24fo').value;
+            const cabo36fo = document.getElementById('cabo36fo').value;
+            const cabo48fo = document.getElementById('cabo48fo').value;
+            const cabo72fo = document.getElementById('cabo72fo').value;
+            const ptro = document.getElementById('ptro').value;
+            const ceo48fo = document.getElementById('ceo48fo').value;
+            //const ceo72fo = document.getElementById('ceo72fo').value;
 
 
+
+            const drop4f0Field = form.getTextField('drop4f0');
+            drop4f0Field.setText(drop4f0);
+
+            const drop12foField = form.getTextField('drop12fo');
+            drop12foField.setText(drop12fo);
+
+            const cabo24foField = form.getTextField('cabo24fo');
+            cabo24foField.setText(cabo24fo);
+
+            const cabo36foField = form.getTextField('cabo36fo');
+            cabo36foField.setText(cabo36fo);
+
+            const cabo48foField = form.getTextField('cabo48fo');
+            cabo48foField.setText(cabo48fo);
+
+            const cabo72foField = form.getTextField('cabo72fo');
+            cabo72foField.setText(cabo72fo);
+
+            const ptroField = form.getTextField('ptro');
+            ptroField.setText(ptro);
+
+            const ceo48foField = form.getTextField('ceo48fo');
+            ceo48foField.setText(ceo48fo);
+
+            //const ceo72foField = form.getTextField('ceo72fo');
+            //ceo72foField.setText(re); 
+
+
+
+        //emendas
+
+            const pontaAField = form.getTextField('pontaA');
+            pontaAField.setText(pontaA);
+
+            const pontaBField = form.getTextField('pontaB');
+            pontaBField.setText(pontaB);
+
+            const taField = form.getTextField('ta');
+            taField.setText(ta);
+
+            const localField = form.getTextField('local');
+            localField.setText(local);
+
+            const dataField = form.getTextField('data');
+            dataField.setText(data);
+
+            const enderecoField = form.getTextField('endereco');
+            enderecoField.setText(endereco);
+
+            const tecnicoField = form.getTextField('tecnico');
+            tecnicoField.setText(tecnico);
+
+            const auxiliarField = form.getTextField('auxiliar');
+            auxiliarField.setText(auxiliar);
+
+            const reField = form.getTextField('re');
+            reField.setText(re);
+
+            const supervisorField = form.getTextField('supervisor');
+            supervisorField.setText(supervisor);
+
+            const coordenadorField = form.getTextField('coordenador');
+            coordenadorField.setText(coordenador);
+
+            const causaField = form.getTextField('causa');
+            causaField.setText(causa);
+
+            const tratativaField = form.getTextField('tratativa');
+            tratativaField.setText(tratativa);
+
+            const baixasField = form.getTextField('baixas');
+            baixasField.setText(baixas);
+
+            //const caboField = form.getTextField('cabo');
+            //caboField.setText(cabo);
+
+            const qCaboField = form.getTextField('qCabo');
+            qCaboField.setText(qCabo);
+
+            //const emendaField = form.getTextField('emenda');
+            //emendaField.setText(emenda);
+
+            const qEmendaField = form.getTextField('qEmenda');
+            qEmendaField.setText(qEmenda);
+
+            const latitudeField = form.getTextField('latitude');
+            latitudeField.setText(latitude);
+
+            const longitudeField = form.getTextField('longitude');
+            longitudeField.setText(longitude);
+
+            // Serializar o PDF modificado
+            const pdfBytes = await pdfDoc.save();
+
+            // Criar um nome dinâmico para o PDF
+            const nomeArquivo = re ? `${pontaA} x ${pontaB} - ${ta}.pdf` : 'Faltou preencher o RE.pdf';
+
+            // Criar um link para o usuário baixar o PDF preenchido
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = nomeArquivo;
+            link.click();
+        });
+    </script>
 </body>
 </html>
