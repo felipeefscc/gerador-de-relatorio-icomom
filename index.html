@@ -15,7 +15,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 310vh;
+            height: 100%;
         }
 
         /* Container do formulário */
@@ -25,6 +25,7 @@
             padding: 40px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 100%;
+            height: 100%;
             max-width: 600px;
             display: flex;
             flex-direction: column;
@@ -206,6 +207,19 @@
 
         <label for="baixas">Baixas:</label>
         <textarea id="baixas"  rows="10" placeholder="Digite quais foram as baixas" required></textarea>
+
+        <h3>Extras:</h3>
+
+        <label for="tubete">Tubetes:</label>
+        <input type="number" id="tubete" maxlength="5" placeholder="Digite a quatidade de tubetes utilizados" />
+        <br/>
+
+        <label for="plaqueta">Plaquetas:</label>
+        <input type="number" id="plaqueta" maxlength="5" placeholder="Digite a quatidade de plaquetas utilizadas" />
+        <br/>
+
+        <label for="alca">Alças:</label>
+        <input type="number" id="alca" maxlength="5" placeholder="Digite a quatidade de talças utilizadas" />
 
         <h3>Cabo Utilizado:</h3>
 

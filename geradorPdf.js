@@ -30,6 +30,9 @@
     const causa = document.getElementById('causa').value;
     const tratativa = document.getElementById('tratativa').value;
     const baixas = document.getElementById('baixas').value;
+    const tubete = document.getElementById('tubete').value;
+    const plaqueta = document.getElementById('plaqueta').value;
+    const alca = document.getElementById('alca').value;
     //const cabo = document.getElementById('cabo').value;
     const qCabo = document.getElementById('qCabo').value
     //const emenda = document.getElementById('emenda').value;
@@ -123,6 +126,15 @@
 
     const baixasField = form.getTextField('baixas');
     baixasField.setText(baixas);
+
+    const tubeteField = form.getTextField('tubete');
+    tubeteField.setText(tubete);
+
+    const plaquetaField = form.getTextField('plaqueta');
+    plaquetaField.setText(plaqueta);
+
+    const alcaField = form.getTextField('alca');
+    alcaField.setText(alca);
 
     //const caboField = form.getTextField('cabo');
     //caboField.setText(cabo);
