@@ -211,15 +211,15 @@
         <h3>Extras:</h3>
 
         <label for="tubete">Tubetes:</label>
-        <input type="number" id="tubete" maxlength="5" placeholder="Digite a quatidade de tubetes utilizados" />
+        <input type="number" id="tubete"  placeholder="Digite a quatidade de tubetes utilizados" />
         <br/>
 
         <label for="plaqueta">Plaquetas:</label>
-        <input type="number" id="plaqueta" maxlength="5" placeholder="Digite a quatidade de plaquetas utilizadas" />
+        <input type="number" id="plaqueta"  placeholder="Digite a quatidade de plaquetas utilizadas" />
         <br/>
 
         <label for="alca">Alças:</label>
-        <input type="number" id="alca" maxlength="5" placeholder="Digite a quatidade de talças utilizadas" />
+        <input type="number" id="alca"  placeholder="Digite a quatidade de talças utilizadas" />
 
         <h3>Cabo Utilizado:</h3>
 
@@ -308,6 +308,12 @@
             const causa = document.getElementById('causa').value;
             const tratativa = document.getElementById('tratativa').value;
             const baixas = document.getElementById('baixas').value;
+
+            const tubete = document.getElementById('tubete').value;
+            const plaqueta = document.getElementById('plaqueta').value;
+            const alca = document.getElementById('alca').value;
+
+
             //const cabo = document.getElementById('cabo').value;
             const qCabo = document.getElementById('qCabo').value
             //const emenda = document.getElementById('emenda').value;
@@ -401,6 +407,15 @@
 
             const baixasField = form.getTextField('baixas');
             baixasField.setText(baixas);
+
+            const tubeteField = form.getTextField('tubete');
+            tubeteField.setText(tubete);
+
+            const plaquetaField = form.getTextField('plaqueta');
+            plaquetaField.setText(plaqueta);
+
+            const alcaField = form.getTextField('alca');
+            alcaField.setText(alca);
 
             //const caboField = form.getTextField('cabo');
             //caboField.setText(cabo);

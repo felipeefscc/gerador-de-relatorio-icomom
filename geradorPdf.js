@@ -30,15 +30,19 @@
     const causa = document.getElementById('causa').value;
     const tratativa = document.getElementById('tratativa').value;
     const baixas = document.getElementById('baixas').value;
+
     const tubete = document.getElementById('tubete').value;
     const plaqueta = document.getElementById('plaqueta').value;
     const alca = document.getElementById('alca').value;
+
+    
+
     //const cabo = document.getElementById('cabo').value;
-    const qCabo = document.getElementById('qCabo').value
+    const qCabo = document.getElementById('qCabo').value;
     //const emenda = document.getElementById('emenda').value;
-    const qEmenda = document.getElementById('qEmenda').value
-    const latitude = document.getElementById('latitude').value
-    const longitude = document.getElementById('longitude').value
+    const qEmenda = document.getElementById('qEmenda').value;
+    const latitude = document.getElementById('latitude').value;
+    const longitude = document.getElementById('longitude').value;
 
     // emendas
 
@@ -156,6 +160,7 @@
 
     // Serializar o PDF modificado
     const pdfBytes = await pdfDoc.save();
+
 
     // Criar um nome dinâmico para o PDF
     const nomeArquivo = re ? `${pontaA} x ${pontaB} - ${ta}.pdf` : 'Faltou preencher o RE.pdf';
